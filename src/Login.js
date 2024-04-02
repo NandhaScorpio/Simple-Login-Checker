@@ -10,6 +10,8 @@ function Login() {
   const [loginput, setLogInput] = useState(true);
   const [loginPage, setLoginPage] = useState(false);
 
+  const [loginError,setLoginError] = useState(true)
+
   const nid = 0;
 
   console.log(nid);
@@ -30,12 +32,15 @@ function Login() {
 
     setLogInput(!nid);
     setLoginPage(nid);
+
+    nid?setLoginError(true):setLoginError(false)
   }
 
   return (
     <div>
       <h1>Login</h1>
-      <h1 style={{ display: loginPage ? "block" : "none" }}>Hello Nandha</h1>
+      <h1 style={{ display: loginPage ? "block" : "none", color:"greenyellow" }}>Hello Nandha</h1>
+      <h1 style={{ display: loginError ? "none" : "block", color:"red" }}>Wrong Username / Password</h1>
       <label style={{ display: loginput ? "block" : "none" }}>Username :</label>
       <input
         type="text"
